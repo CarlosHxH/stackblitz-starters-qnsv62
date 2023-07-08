@@ -1,3 +1,6 @@
+const jsonServer = require('json-server');
+const router = jsonServer.router('db.json');
+
 //var mysql = require('mysql');
 /*
 var connection = mysql.createConnection({
@@ -11,8 +14,10 @@ var connection = mysql.createConnection({
 export default (req, res) => {
   if (req.method === 'GET') {
     const { id } = req.query;
-    const data = [];
-
+    const db = router.db;
+    const users = db.get('users');
+    const find = users.find((e) => e.id === id); //req.params.id);
+    res.status(200).json([find]);
     /*connection.query('SELECT * FROM pessoa', function (error, results, fields) {
       if (error) throw error;
       data = results[0].solution;

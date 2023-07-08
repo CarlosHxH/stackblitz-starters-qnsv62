@@ -7,7 +7,7 @@ export default function Home() {
   const [data, setData] = React.useState({});
 
   React.useEffect(() => {
-    axios.get('/api/12', { name: 'Admin', cpf: '' }).then((resp) => {
+    axios.post('/api', { name: 'User', cpf: '01234567890' }).then((resp) => {
       console.log(resp.data);
       setData(resp.data);
     });
