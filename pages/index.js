@@ -6,21 +6,13 @@ import axios from 'axios';
 export default function Home() {
   const [data, setData] = React.useState({});
 
-  React.useEffect(async () => {
-    await axios.get('/api').then((resp) => {
+  React.useEffect(() => {
+    axios.post('/api', { name: 'Admin', cpf: '' }).then((resp) => {
       console.log(resp.data);
       setData(resp.data);
     });
   }, []);
-  /*
-  const api = async () => {
-    await axios.get('/api').then((resp) => {
-      console.log(resp.data);
-      setData(resp.data);
-    });
-  };
-  !data && api();
-*/
+
   return (
     <div className={styles.container}>
       <Head>
