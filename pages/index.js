@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import axios from 'axios';
+import Header from './header';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
   const [data, setData] = React.useState({});
@@ -16,8 +18,11 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title></title>
+        <title>Filmes</title>
       </Head>
+      <nav>
+        <Header />
+      </nav>
 
       <main className={styles.main}>
         <div className={styles.grid}>
